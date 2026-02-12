@@ -19,7 +19,6 @@ const readFileSync =(path)=>{
     }
 }
 readFileSync('./example.txt');
-
 // writeFileSync('..example.txt','This is an example text file.');
 // writeFileSync('..example.txt','This is an example text file.');
 // writeFileSync('./example.txt','This is an example text file.');
