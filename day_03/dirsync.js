@@ -1,13 +1,24 @@
 import fs from 'fs/promises';
-
-const appendFile=async(path,data)=>{   
-        try{
-await fs.append
-File(path,data);
-console.log("data hve been appended successfully");
-        }
-        catch(err){
-            console.log("unable to append data",err);
-        }   
+const readDirSync = (path) => {
+    fs.readDirSync(path);
 }
-appendFile("./example.txt","\nThis is appended data through async");
+const makeDirSync = (path) => {
+    try {
+        fs.mkdirSync(path);
+        console.log("directory created successfully");
+    }
+    catch (err) {
+        console.log("unable to create directory", err);
+    }
+}
+const removeDirSync = (path) => {
+    try {
+        fs.rmdirSync(path);
+        console.log("directory removed successfully");
+    }
+    catch (err) {
+        console.log("unable to remove directory", err);
+    }       
+}
+makeDirSync("../day_05");
+removeDirSync("../day_100");
