@@ -1,0 +1,21 @@
+import { readJsonFile, writeJsonFile } from "./services/fileService.js";
+
+const FILE = "./data/users.json";
+
+const deleteUser = async (email) => {
+    const users = await readJsonFile(FILE);
+
+    const user = users.find(user => user.email === email);
+
+    if (!user) {
+        return console.log("User not found ❌");
+    }
+
+    const updatedUsers = users.filter(user => user.email !== email);
+
+    await writeJsonFile(FILE, updatedUsers);
+
+    console.log("User deleted successfully ✅");
+};
+
+deleteUser("khush@gmail.com");
